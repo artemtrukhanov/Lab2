@@ -5,7 +5,7 @@
 const int MAX_SIZE = 10000;
 
 template <class T>
-class TMatrix : public Vector<Vector<T>>
+class TMatrix : public Vector<Vector<T> >
 {
 public:
 	TMatrix(int _size);
