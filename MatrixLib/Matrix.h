@@ -37,7 +37,7 @@ public:
 };
 
 template<class T>
-inline TMatrix<T>::TMatrix(int _size) : Vector<Vector<T>>(_size)
+inline TMatrix<T>::TMatrix(int _size) : Vector<Vector<T> >(_size)
 {
 	if (_size < 0 || _size > MAX_SIZE)
 		throw  new exception;
@@ -47,7 +47,7 @@ inline TMatrix<T>::TMatrix(int _size) : Vector<Vector<T>>(_size)
 }
 
 template<class T>
-inline TMatrix<T>::TMatrix(const TMatrix<T>& A) : Vector<Vector<T>>(A)
+inline TMatrix<T>::TMatrix(const TMatrix<T>& A) : Vector<Vector<T> >(A)
 {
 }
 
@@ -74,16 +74,6 @@ inline TMatrix<T>& TMatrix<T>::operator=(const TMatrix<T>& A)
 			this->x[i] = A.x[i];
 	}
 	return *this;
-	/*if (this == &A)
-		return *this;
-	if (this->x != NULL) 
-	{
-		for (int i = 0; i < this->Length(); i++)
-			delete[] this->x[i];
-		delete[] this->x;
-	}
-	Vector<Vector<T> >:: operator=(A);
-	return *this;*/
 }
 
 template<class T>
