@@ -30,10 +30,12 @@ TEST(Vector, can_create_copied_vector)
 
 TEST(Vector, copied_vector_is_equal_to_source_one)
 {
-    Vector<int> v1(5);
+    Vector<int> v1(2);
+    v1[0] = 2;
+    v1[1] = 3;
     Vector<int> v2(v1);
 
-    EXPECT_EQ(v1, v2);
+    EXPECT_EQ(v1 == v2, true);
 }
 
 TEST(Vector, copied_vector_has_its_own_memory)
@@ -76,7 +78,7 @@ TEST(Vector, throws_when_set_element_with_too_large_index)
 
 TEST(Vector, can_assign_vector_to_itself)
 {
-    ASSERT_NO_THROW(Vector<Vector<int> > v());
+    ASSERT_NO_THROW(Vector<Vector<int>> v());
 }
 
 TEST(Vector, can_assign_vectors_of_equal_size)
@@ -97,8 +99,13 @@ TEST(Vector, can_assign_vectors_of_different_size)
 
 TEST(Vector, compare_equal_vectors_return_true)
 {
-    Vector<int> v1(4);
-    Vector<int> v2(4);
+    Vector<int> v1(2);
+    v1[0] = 3;
+    v1[1] = 4;
+
+    Vector<int> v2(2);
+    v2[0] = 3;
+    v2[1] = 4;
 
     EXPECT_EQ(v1 == v2, true);
 }
@@ -120,24 +127,38 @@ TEST(Vector, vectors_with_different_size_are_not_equal)
 
 TEST(Vector, can_add_scalar_to_vector)
 {
-    Vector<int> v1(4,4);
-    Vector<int> v2(4, 7);
-
-    EXPECT_EQ(v1 + 3, v2);
+    Vector<int> v1(2);
+    v1[0] = 1;
+    v1[1] = 2;
+    Vector<int> v2(2);
+    v2[0] = 4;
+    v2[1] = 5;
+    v1 = v1 + 3;
+    EXPECT_EQ(v1, v2);
 }
 
 TEST(Vector, can_subtract_scalar_from_vector)
 {
-    Vector<int> v1(4, 4);
-    Vector<int> v2(4, 2);
+    Vector<int> v1(2);
+    v1[0] = 5;
+    v1[1] = 4;
 
-    EXPECT_EQ(v1 - 2, v2);
+    Vector<int> v2(2);
+    v2[0] = 2;
+    v2[1] = 1;
+
+    EXPECT_EQ(v1 - 3, v2);
 }
 
 TEST(Vector, can_multiply_scalar_by_vector)
 {
-    Vector<int> v1(4, 4);
-    Vector<int> v2(4, 12);
+    Vector<int> v1(2);
+    v1[0] = 5;
+    v1[1] = 4;
+
+    Vector<int> v2(2);
+    v2[0] = 15;
+    v2[1] = 12;
 
     EXPECT_EQ(v1 * 3, v2);
 }
@@ -152,8 +173,8 @@ TEST(Vector, can_subtract_vectors_with_equal_size)
 
 TEST(Vector, cant_subtract_vectors_with_not_equal_size)
 {
-    Vector<int> v1(5,3);
-    Vector<int> v2(6,4);
+    Vector<int> v1(5, 3);
+    Vector<int> v2(6, 4);
 
     ASSERT_ANY_THROW(v1 - v2);
 }
@@ -168,8 +189,8 @@ TEST(Vector, can_multiply_vectors_with_equal_size)
 
 TEST(Vector, cant_multiply_vectors_with_not_equal_size)
 {
-    Vector<int> v1(10,3);
-    Vector<int> v2(11,2);
+    Vector<int> v1(10, 3);
+    Vector<int> v2(11, 2);
 
     ASSERT_ANY_THROW(v1 * v2);
 }

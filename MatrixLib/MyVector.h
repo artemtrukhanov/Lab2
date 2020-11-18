@@ -223,9 +223,7 @@ Vector<T>& Vector<T>::operator -=(Vector<T>& _v)
 {
   length = MIN(length, _v.length);
   for (int i = 0; i < length; i++)
-  {
     x[i] -= _v.x[i];
-  }
   return *this;
 }
 

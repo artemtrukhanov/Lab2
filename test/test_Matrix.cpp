@@ -86,6 +86,7 @@ TEST(TMatrix, can_assign_matrices_of_different_size)
     ASSERT_NO_THROW(A = B);
 }
 
+
 TEST(TMatrix, compare_equal_matrices_return_true)
 {
     TMatrix<int> A(7);
