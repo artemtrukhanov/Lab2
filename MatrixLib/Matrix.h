@@ -8,8 +8,9 @@ template <class T>
 class TMatrix : public Vector<Vector<T> >
 {
 public:
-	TMatrix(int _size);
+	TMatrix(int _size=0);
 	TMatrix(const TMatrix<T>& A);
+	TMatrix(const Vector<Vector<T> >& A);
 	~TMatrix();
 
 	TMatrix<T>& operator = (const TMatrix<T>& A);
@@ -48,6 +49,11 @@ inline TMatrix<T>::TMatrix(int _size) : Vector<Vector<T> >(_size)
 
 template<class T>
 inline TMatrix<T>::TMatrix(const TMatrix<T>& A) : Vector<Vector<T> >(A)
+{
+}
+
+template<class T>
+inline TMatrix<T>::TMatrix(const Vector<Vector<T> >& A) : Vector<Vector<T> >(A)
 {
 }
 
