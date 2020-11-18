@@ -121,11 +121,14 @@ bool Vector<T>::operator !=(const Vector<T>& _v) const
 template <class T>
 Vector<T> Vector<T>::operator +(const T& _v)
 {
-  for (int i = 0; i < length; i++)
-  {
-    x[i] = x[i] + _v;
-  }
-  return *this;
+    Vector<T> res;
+    res.length = length;
+    res.x = new T[res.length];
+    for (int i = 0; i < res.length; i++)
+    {
+        res.x[i] = x[i] + _v;
+    }
+    return res;
 }
 
 template <class T>
