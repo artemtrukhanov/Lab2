@@ -78,7 +78,7 @@ TEST(Vector, throws_when_set_element_with_too_large_index)
 
 TEST(Vector, can_assign_vector_to_itself)
 {
-    ASSERT_NO_THROW(Vector<Vector<int>> v());
+    ASSERT_NO_THROW(Vector<Vector<int> > v());
 }
 
 TEST(Vector, can_assign_vectors_of_equal_size)
