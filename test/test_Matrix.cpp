@@ -111,9 +111,9 @@ TEST(TMatrix, matrices_with_different_size_are_not_equal)
 
 TEST(TMatrix, equate_operator_change_matrix_size)
 {
-    TMatrix<int> A(5);
-    TMatrix<int> RES(10);
-    A = 10;
+    TMatrix<int> A(2);
+    TMatrix<int> RES(3);
+    A = 3;
     EXPECT_EQ(A, RES);
 }
 
@@ -128,16 +128,7 @@ TEST(TMatrix, can_add_matrixes_with_equal_size)
     res[0][0] = 30;
 
 
-    EXPECT_EQ(A + B, res);    /*
-    TMatrix<int> A(5);
-    TMatrix<int> B(5);
-    TMatrix<int> res(5);
-
-    for (int i = 0; i < res.Length(); i++)
-        for (int j = 0; j < res.Length(); j++)
-            res[i][j] = 10;
-
-    EXPECT_EQ(A + B, res);*/
+    EXPECT_EQ(A + B, res);    
 }
 
 TEST(TMatrix, throws_when_add_matrixes_with_different_sizes)
